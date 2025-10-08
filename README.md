@@ -1,30 +1,33 @@
+Data Portfolio: Excel to Power BI
+![kaggle_to_powerbi](https://github.com/user-attachments/assets/896a5370-bc74-4356-821e-01f5f5cdb540)
+
 Table of contents
 
-    Objective
-    Data Source
-    Stages
-    Design
-        Mockup
-        Tools
-    Development
-        Pseudocode
-        Data Exploration
-        Data Cleaning
-        Transform the Data
-        Create the SQL View
-    Testing
-        Data Quality Tests
-    Visualization
-        Results
-        DAX Measures
-    Analysis
-        Findings
-        Validation
-        Discovery
-    Recommendations
-        Potential ROI
-        Potential Courses of Actions
-    Conclusion
+    #Objective
+    #Data Source
+    #Stages
+    #Design
+        #Mockup
+        #Tools
+    #Development
+        #Pseudocode
+        #Data Exploration
+        #Data Cleaning
+        #Transform the Data
+        #Create the SQL View
+    #Testing
+        #Data Quality Tests
+    #Visualization
+        #Results
+        #DAX Measures
+    #Analysis
+        #Findings
+        #Validation
+        #Discovery
+    #Recommendations
+        #Potential ROI
+        #Potential Courses of Actions
+    #Conclusion
 
 Objective
 
@@ -97,8 +100,9 @@ Some of the data visuals that may be appropriate in answering our questions incl
     Treemap
     Scorecards
     Horizontal bar chart
-
+![Uploading dashboard_mockup.png…]()
 Dashboard-Mockup
+
 Tools
 Tool 	Purpose
 Excel 	Exploring the data
@@ -216,24 +220,8 @@ SELECT
     COUNT(*) AS no_of_rows
 FROM
     view_uk_youtubers_2024;
+<img width="776" height="485" alt="1_row_count_check" src="https://github.com/user-attachments/assets/a3f16622-45d0-4e2d-88b4-f21a91e31827" />
 
-Row count check
-Column count check
-SQL query
-
-/*
-# Count the total number of columns (or fields) are in the SQL view
-*/
-
-
-SELECT
-    COUNT(*) AS column_count
-FROM
-    INFORMATION_SCHEMA.COLUMNS
-WHERE
-    TABLE_NAME = 'view_uk_youtubers_2024'
-
-Output
 
 Column count check
 Data type check
@@ -253,8 +241,26 @@ WHERE
     TABLE_NAME = 'view_uk_youtubers_2024';
 
 Output
+<img width="784" height="552" alt="2_column_count_check" src="https://github.com/user-attachments/assets/97f8a673-3bab-4971-bca1-e434fc1a8429" />
 
-Data type check
+SQL query
+
+/*
+# Check the data types of each column from the view by checking the INFORMATION SCHEMA view
+*/
+
+-- 1.
+SELECT
+    COLUMN_NAME,
+    DATA_TYPE
+FROM
+    INFORMATION_SCHEMA.COLUMNS
+WHERE
+    TABLE_NAME = 'view_uk_youtubers_2024';
+
+Output
+<img width="817" height="675" alt="3_data_type_check" src="https://github.com/user-attachments/assets/9eb06938-28da-42d7-89d2-b52f5f3de6ce" />
+
 Duplicate count check
 SQL query
 
@@ -280,16 +286,18 @@ HAVING
     COUNT(*) > 1;
 
 Output
+<img width="804" height="568" alt="4_duplicate_records_check" src="https://github.com/user-attachments/assets/550b38a4-999d-406f-a8b5-d0e3985318b7" />
 
-Duplicate count check
 Visualization
 Results
 
     What does the dashboard look like?
 
-GIF of Power BI Dashboard
+
+![top_uk_youtubers_2024](https://github.com/user-attachments/assets/66a3dd77-a62f-4929-8c33-9ce31e5b2e7a)
 
 This shows the Top UK Youtubers in 2024 so far.
+
 DAX Measures
 1. Total Subscribers (M)
 
@@ -490,6 +498,7 @@ ORDER BY
 	net_profit DESC
 
 Output
+<img width="1061" height="892" alt="youtubers_with_the_most_subs" src="https://github.com/user-attachments/assets/1cae6b65-fb46-400c-ac3c-091574971503" />
 
 Most subsc
 2. Youtubers with the most videos uploaded
@@ -576,8 +585,9 @@ ORDER BY
     net_profit DESC;
 
 Output
+<img width="1108" height="891" alt="youtubers_with_the_most_videos" src="https://github.com/user-attachments/assets/2c8e15c0-58bc-459a-97dc-8e32e976f044" />
 
-Most videos
+
 3. Youtubers with the most views
 Calculation breakdown
 
@@ -664,7 +674,8 @@ ORDER BY
 
 Output
 
-Most views
+<img width="1046" height="891" alt="youtubers_with_the_most_views" src="https://github.com/user-attachments/assets/edd26cf9-6d16-48f7-b6df-bd586e56f291" />
+
 Discovery
 
     What did we learn?
